@@ -1,3 +1,5 @@
+from django.http import HttpResponse
+from django.shortcuts import render
 import requests, bs4
 import re
 def weather_get(city):
@@ -20,5 +22,10 @@ def weather_get(city):
 	appe(first_days)
 	appe(sec_and_third_days)
 	appe(other_days)
-	return(weathers)
-	bs4.BeautifulSoup
+	result = 'Город: '+city.upper()+'\nДата: '+weathers[0]['date']+'\n'+weathers[0]['sky']+'\n Минимальная температура: '+weathers[0]['t'][0]+'\n Максимальная температура: '+weathers[0]['t'][1]
+	html = f'<mark>{result}</mark>
+	context = {
+		'response': html,
+		'where': request.path
+	}
+	return render(request, 'templates/index.html', context)
