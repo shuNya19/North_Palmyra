@@ -23,7 +23,7 @@ def weather_get(city):
 	appe(sec_and_third_days)
 	appe(other_days)
 	result = 'Город: '+city.upper()+'\nДата: '+weathers[0]['date']+'\n'+weathers[0]['sky']+'\n Минимальная температура: '+weathers[0]['t'][0]+'\n Максимальная температура: '+weathers[0]['t'][1]
-	html = f'<mark>{result}</mark>
+	html = f'<mark>{result}</mark>'
 	context = {
 		'response': html,
 		'where': request.path
